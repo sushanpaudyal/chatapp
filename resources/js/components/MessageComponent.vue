@@ -1,7 +1,10 @@
 <template>
     <div class="card card-default chat-box">
         <div class="card-header">
-            Chats
+            <b :class="{'text-danger':session_block}"> 
+                User Name     <span v-if="session_block">(Blocked)</span> 
+            </b>
+
             <!-- Close Button -->
             <a href="" @click.prevent="close">
                 <i class="fa fa-times float-right"></i>
@@ -13,8 +16,9 @@
                 <a href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="fasle"> 
                     <i class="fa fa-ellipsis-v"> </i> 
                 </a> 
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
-                    <a href="#" class="dropdown-item">Block</a> 
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a href="#" class="dropdown-item" v-if="session_block" @click.prevent="unblock">Un Block</a>
+                    <a href="#" class="dropdown-item" @click.prevent="block" v-else>Block</a> 
                     <a href="#" class="dropdown-item" @click.prevent="clear">Clear Chat</a> 
                 </div> 
             </div>
@@ -29,7 +33,7 @@
         </div>
         <form class="card-footer" @submit.prevent="send">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Write your message here">
+                <input type="text" class="form-control" placeholder="Write your message here" :disabled="session_block">
             </div>
         </form>
     </div>
@@ -40,6 +44,7 @@
         data(){
             return {
                 chats : [],
+                session_block: false
             }
         },
         methods : {
@@ -51,6 +56,12 @@
             },
             clear(){
                 this.chats = []
+            },
+            block(){
+                this.session_block = true
+            },
+            unblock(){
+                this.session_block = false
             }
         },
         created(){
