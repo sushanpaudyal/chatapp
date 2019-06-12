@@ -1716,8 +1716,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      open: true
+    };
+  },
+  methods: {
+    close: function close() {
+      this.open = false;
+    }
+  },
+  created: function created() {},
   components: {
     MessageComponent: _MessageComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -1753,7 +1765,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      chats: []
+    };
+  },
+  methods: {
+    send: function send() {
+      console.log("sent");
+    },
+    close: function close() {
+      this.$emit('close');
+    }
+  },
+  created: function created() {
+    this.chats.push({
+      message: 'Hey'
+    }, {
+      message: 'How are You'
+    }, {
+      message: 'How are You Suahn'
+    }, {
+      message: 'Is Everything Good Bro'
+    }, {
+      message: 'Thanks'
+    }, {
+      message: 'How'
+    }, {
+      message: 'is that possible'
+    }, {
+      message: 'See you soon'
+    }, {
+      message: 'Sushan Paudyal'
+    });
+  }
+});
 
 /***/ }),
 
@@ -6214,7 +6266,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.chat-box{\n    height: 400px;\n}\n", ""]);
+exports.push([module.i, "\n.chat-box{\n    height: 400px;\n}\n.card-body{\n    overflow-y: scroll;\n}\n", ""]);
 
 // exports
 
@@ -37676,6 +37728,82 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-chat-scroll/dist/vue-chat-scroll.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/vue-chat-scroll/dist/vue-chat-scroll.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function (global, factory) {
+	 true ? module.exports = factory() :
+	undefined;
+}(this, (function () { 'use strict';
+
+/**
+* @name VueJS vChatScroll (vue-chat-scroll)
+* @description Monitors an element and scrolls to the bottom if a new child is added
+* @author Theodore Messinezis <theo@theomessin.com>
+* @file v-chat-scroll  directive definition
+*/
+
+var scrollToBottom = function scrollToBottom(el, smooth) {
+  if (typeof el.scroll === "function") {
+    el.scroll({
+      top: el.scrollHeight,
+      behavior: smooth ? 'smooth' : 'instant'
+    });
+  } else {
+    el.scrollTop = el.scrollHeight;
+  }
+};
+
+var vChatScroll = {
+  bind: function bind(el, binding) {
+    var scrolled = false;
+
+    el.addEventListener('scroll', function (e) {
+      scrolled = el.scrollTop + el.clientHeight + 1 < el.scrollHeight;
+    });
+
+    new MutationObserver(function (e) {
+      var config = binding.value || {};
+      var pause = config.always === false && scrolled;
+      if (config.scrollonremoved) {
+        if (pause || e[e.length - 1].addedNodes.length != 1 && e[e.length - 1].removedNodes.length != 1) return;
+      } else {
+        if (pause || e[e.length - 1].addedNodes.length != 1) return;
+      }
+      scrollToBottom(el, config.smooth);
+    }).observe(el, { childList: true, subtree: true });
+  },
+  inserted: scrollToBottom
+};
+
+/**
+* @name VueJS vChatScroll (vue-chat-scroll)
+* @description Monitors an element and scrolls to the bottom if a new child is added
+* @author Theodore Messinezis <theo@theomessin.com>
+* @file vue-chat-scroll plugin definition
+*/
+
+var VueChatScroll = {
+  install: function install(Vue, options) {
+    Vue.directive('chat-scroll', vChatScroll);
+  }
+};
+
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(VueChatScroll);
+}
+
+return VueChatScroll;
+
+})));
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ChatComponent.vue?vue&type=template&id=80d584ac&":
 /*!****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ChatComponent.vue?vue&type=template&id=80d584ac& ***!
@@ -37695,7 +37823,16 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-9" }, [_c("message-component")], 1)
+      _c(
+        "div",
+        { staticClass: "col-md-9" },
+        [
+          _vm.open
+            ? _c("message-component", { on: { close: _vm.close } })
+            : _vm._e()
+        ],
+        1
+      )
     ])
   ])
 }
@@ -37709,7 +37846,11 @@ var staticRenderFns = [
         _c("div", { staticClass: "card-header" }, [_vm._v("Private Chat App")]),
         _vm._v(" "),
         _c("ul", { staticClass: "list-group" }, [
-          _c("li", { staticClass: "list-group-item" }, [_vm._v("Hello")])
+          _c("li", { staticClass: "list-group-item" }, [
+            _vm._v("Sushan Paudyal")
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "list-group-item" }, [_vm._v("Jon Doe")])
         ])
       ])
     ])
@@ -37736,30 +37877,70 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "card card-default chat-box" }, [
+    _c("div", { staticClass: "card-header" }, [
+      _vm._v("\n        Chats\n        "),
+      _c(
+        "a",
+        {
+          attrs: { href: "" },
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.close($event)
+            }
+          }
+        },
+        [_c("i", { staticClass: "fa fa-times float-right" })]
+      )
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "chat-scroll",
+            rawName: "v-chat-scroll",
+            value: { always: false, smooth: true },
+            expression: "{always: false, smooth: true}"
+          }
+        ],
+        staticClass: "card-body"
+      },
+      _vm._l(_vm.chats, function(chat) {
+        return _c("p", { key: chat.message, staticClass: "card-text" }, [
+          _vm._v("\n            " + _vm._s(chat.message) + "\n        ")
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        staticClass: "card-footer",
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.send($event)
+          }
+        }
+      },
+      [_vm._m(0)]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card card-default chat-box" }, [
-      _c("div", { staticClass: "card-header" }, [
-        _vm._v("\n        Chats\n    ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _vm._v("\n        Hey How Are You\n    ")
-      ]),
-      _vm._v(" "),
-      _c("form", { staticClass: "card-footer" }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", placeholder: "Write your message here" }
-          })
-        ])
-      ])
+    return _c("div", { staticClass: "form-group" }, [
+      _c("input", {
+        staticClass: "form-control",
+        attrs: { type: "text", placeholder: "Write your message here" }
+      })
     ])
   }
 ]
@@ -49920,6 +50101,7 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+Vue.use(__webpack_require__(/*! vue-chat-scroll */ "./node_modules/vue-chat-scroll/dist/vue-chat-scroll.js"));
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

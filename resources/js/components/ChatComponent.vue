@@ -5,12 +5,13 @@
                 <div class="card card-default"> 
                     <div class="card-header">Private Chat App</div> 
                     <ul class="list-group"> 
-                        <li class="list-group-item">Hello</li> 
+                        <li class="list-group-item">Sushan Paudyal</li>
+                        <li class="list-group-item">Jon Doe</li>
                     </ul> 
                 </div> 
             </div> 
             <div class="col-md-9"> 
-                <message-component></message-component>
+                <message-component v-if="open" @close="close"></message-component>
             </div> 
         </div> 
     </div> 
@@ -19,6 +20,18 @@
 <script>
     import MessageComponent from './MessageComponent';
     export default {
+        data(){
+            return {
+                open : true
+            }
+        },
+        methods: {
+            close(){
+                this.open = false
+            }
+        },
+        created(){
+        },
         components : {MessageComponent},
         mounted() {
             console.log('Component mounted.')
@@ -28,5 +41,8 @@
 <style>
     .chat-box{
         height: 400px;
+    }
+    .card-body{
+        overflow-y: scroll;
     }
 </style>
