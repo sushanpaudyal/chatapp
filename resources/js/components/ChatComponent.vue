@@ -10,15 +10,23 @@
                 </div> 
             </div> 
             <div class="col-md-9"> 
+                <message-component></message-component>
             </div> 
         </div> 
     </div> 
 </template>
 
 <script>
+    import MessageComponent from './MessageComponent';
     export default {
+        components : {MessageComponent},
         mounted() {
             console.log('Component mounted.')
         }
     }
 </script>
+<style>
+    .chat-box{
+        height: 400px;
+    }
+</style>
