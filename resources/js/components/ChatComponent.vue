@@ -59,7 +59,17 @@
         },
 
         created(){
-            this.getFriends()
+            this.getFriends();
+            Echo.join(`Chat`)
+                .here((users) => {
+                this.friends.forEach(friend => {
+                    users.forEach(user => {
+                        if(user.id == friend.id){
+                            friend.online = true
+            }
+            })
+            })
+            })
         },
         components : {MessageComponent},
 

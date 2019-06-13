@@ -1762,7 +1762,18 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
+    var _this2 = this;
+
     this.getFriends();
+    Echo.join("Chat").here(function (users) {
+      _this2.friends.forEach(function (friend) {
+        users.forEach(function (user) {
+          if (user.id == friend.id) {
+            friend.online = true;
+          }
+        });
+      });
+    });
   },
   components: {
     MessageComponent: _MessageComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -60500,10 +60511,8 @@ if (token) {
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
-  key: "",
-  // key = "702172e42bc8e5775795"
-  cluster: "mt1",
-  // cluster = "ap2"
+  key: "702172e42bc8e5775795",
+  cluster: "ap2",
   encrypted: true
 });
 
