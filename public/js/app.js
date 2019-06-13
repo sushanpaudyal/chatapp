@@ -1693,169 +1693,9 @@ module.exports = {
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ChatComponent.vue?vue&type=script&lang=js& ***!
   \************************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _MessageComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MessageComponent */ "./resources/js/components/MessageComponent.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      open: true,
-      friends: []
-    };
-  },
-  methods: {
-    close: function close(friend) {
-      friend.session.open = false;
-    },
-    getFriends: function getFriends() {
-      var _this = this;
-
-      axios.post('/getFriends').then(function (res) {
-        return _this.friends = res.data.data;
-      });
-    },
-    openChat: function openChat(friend) {
-      this.friends.forEach(function (friend) {
-        friend.session.open = false;
-      });
-      friend.session.open = true;
-    }
-  },
-  created: function created() {
-    this.getFriends();
-  },
-  components: {
-    MessageComponent: _MessageComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MessageComponent.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MessageComponent.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['friend'],
-  data: function data() {
-    return {
-      chats: [],
-      session_block: false
-    };
-  },
-  methods: {
-    send: function send() {
-      console.log("sent");
-    },
-    close: function close() {
-      this.$emit('close');
-    },
-    clear: function clear() {
-      this.chats = [];
-    },
-    block: function block() {
-      this.session_block = true;
-    },
-    unblock: function unblock() {
-      this.session_block = false;
-    }
-  },
-  created: function created() {
-    this.chats.push({
-      message: 'Hey'
-    }, {
-      message: 'How are You'
-    }, {
-      message: 'How are You Suahn'
-    }, {
-      message: 'Is Everything Good Bro'
-    }, {
-      message: 'Thanks'
-    }, {
-      message: 'How'
-    }, {
-      message: 'is that possible'
-    }, {
-      message: 'See you soon'
-    }, {
-      message: 'Sushan Paudyal'
-    });
-  }
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Applications/MAMP/htdocs/heavenmaker/chatapp/resources/js/components/ChatComponent.vue: Unexpected token, expected \",\" (58:4)\n\n\u001b[0m \u001b[90m 56 | \u001b[39m        axios\u001b[33m.\u001b[39mpost(\u001b[32m'/session/create'\u001b[39m\u001b[33m,\u001b[39m {friend_id \u001b[33m:\u001b[39m friend\u001b[33m.\u001b[39mid})\u001b[33m.\u001b[39mthen(res \u001b[33m=>\u001b[39m console\u001b[33m.\u001b[39mlog(res\u001b[33m.\u001b[39mdata))\u001b[0m\n\u001b[0m \u001b[90m 57 | \u001b[39m    }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 58 | \u001b[39m    created(){\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 59 | \u001b[39m        \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mgetFriends()\u001b[0m\n\u001b[0m \u001b[90m 60 | \u001b[39m    }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 61 | \u001b[39m    components \u001b[33m:\u001b[39m {\u001b[33mMessageComponent\u001b[39m}\u001b[33m,\u001b[39m\u001b[0m\n    at Parser.raise (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:6344:17)\n    at Parser.unexpected (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:7659:16)\n    at Parser.expect (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:7645:28)\n    at Parser.parseObj (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:9134:14)\n    at Parser.parseExprAtom (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:8774:21)\n    at Parser.parseExprSubscripts (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:8413:23)\n    at Parser.parseMaybeUnary (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:8393:21)\n    at Parser.parseExprOps (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:8280:23)\n    at Parser.parseMaybeConditional (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:8253:23)\n    at Parser.parseMaybeAssign (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:8200:21)\n    at Parser.parseExportDefaultExpression (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:10973:24)\n    at Parser.parseExport (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:10868:31)\n    at Parser.parseStatementContent (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:9892:27)\n    at Parser.parseStatement (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:9788:17)\n    at Parser.parseBlockOrModuleBlockBody (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:10364:25)\n    at Parser.parseBlockBody (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:10351:10)\n    at Parser.parseTopLevel (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:9717:10)\n    at Parser.parse (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:11233:17)\n    at parse (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/parser/lib/index.js:11269:38)\n    at parser (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/core/lib/transformation/normalize-file.js:170:34)\n    at normalizeFile (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/core/lib/transformation/normalize-file.js:138:11)\n    at runSync (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/core/lib/transformation/index.js:44:43)\n    at runAsync (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/core/lib/transformation/index.js:35:14)\n    at process.nextTick (/Applications/MAMP/htdocs/heavenmaker/chatapp/node_modules/@babel/core/lib/transform.js:34:34)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
 
 /***/ }),
 
@@ -37909,23 +37749,25 @@ var render = function() {
         "div",
         { staticClass: "col-md-9" },
         _vm._l(_vm.friends, function(friend) {
-          return _c(
-            "span",
-            { key: friend.id },
-            [
-              friend.session.open
-                ? _c("message-component", {
-                    attrs: { friend: friend },
-                    on: {
-                      close: function($event) {
-                        return _vm.close(friend)
-                      }
-                    }
-                  })
-                : _vm._e()
-            ],
-            1
-          )
+          return friend.session
+            ? _c(
+                "span",
+                { key: friend.id },
+                [
+                  friend.session.open
+                    ? _c("message-component", {
+                        attrs: { friend: friend },
+                        on: {
+                          close: function($event) {
+                            return _vm.close(friend)
+                          }
+                        }
+                      })
+                    : _vm._e()
+                ],
+                1
+              )
+            : _vm._e()
         }),
         0
       )
@@ -37933,173 +37775,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MessageComponent.vue?vue&type=template&id=3f20c7be&":
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MessageComponent.vue?vue&type=template&id=3f20c7be& ***!
-  \*******************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card card-default chat-box" }, [
-    _c("div", { staticClass: "card-header" }, [
-      _c("b", { class: { "text-danger": _vm.session_block } }, [
-        _vm._v("\n            " + _vm._s(_vm.friend.name) + "\n            "),
-        _vm.session_block ? _c("span", [_vm._v("(Blocked)")]) : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          attrs: { href: "" },
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.close($event)
-            }
-          }
-        },
-        [_c("i", { staticClass: "fa fa-times float-right" })]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "dropdown float-right mr-4" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "dropdown-menu",
-            attrs: { "aria-labelledby": "dropdownMenuButton" }
-          },
-          [
-            _vm.session_block
-              ? _c(
-                  "a",
-                  {
-                    staticClass: "dropdown-item",
-                    attrs: { href: "#" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        return _vm.unblock($event)
-                      }
-                    }
-                  },
-                  [_vm._v("Un Block")]
-                )
-              : _c(
-                  "a",
-                  {
-                    staticClass: "dropdown-item",
-                    attrs: { href: "#" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        return _vm.block($event)
-                      }
-                    }
-                  },
-                  [_vm._v("Block")]
-                ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "dropdown-item",
-                attrs: { href: "#" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.clear($event)
-                  }
-                }
-              },
-              [_vm._v("Clear Chat")]
-            )
-          ]
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "chat-scroll",
-            rawName: "v-chat-scroll",
-            value: { always: false, smooth: true },
-            expression: "{always: false, smooth: true}"
-          }
-        ],
-        staticClass: "card-body"
-      },
-      _vm._l(_vm.chats, function(chat) {
-        return _c("p", { key: chat.message, staticClass: "card-text" }, [
-          _vm._v("\n            " + _vm._s(chat.message) + "\n        ")
-        ])
-      }),
-      0
-    ),
-    _vm._v(" "),
-    _c(
-      "form",
-      {
-        staticClass: "card-footer",
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.send($event)
-          }
-        }
-      },
-      [
-        _c("div", { staticClass: "form-group" }, [
-          _c("input", {
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              placeholder: "Write your message here",
-              disabled: _vm.session_block
-            }
-          })
-        ])
-      ]
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        attrs: {
-          href: "",
-          "data-toggle": "dropdown",
-          "aria-haspopup": "true",
-          "aria-expanded": "fasle"
-        }
-      },
-      [_c("i", { staticClass: "fa fa-ellipsis-v" })]
-    )
-  }
-]
 render._withStripped = true
 
 
@@ -50421,75 +50096,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatComponent_vue_vue_type_template_id_80d584ac___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatComponent_vue_vue_type_template_id_80d584ac___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/MessageComponent.vue":
-/*!******************************************************!*\
-  !*** ./resources/js/components/MessageComponent.vue ***!
-  \******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _MessageComponent_vue_vue_type_template_id_3f20c7be___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MessageComponent.vue?vue&type=template&id=3f20c7be& */ "./resources/js/components/MessageComponent.vue?vue&type=template&id=3f20c7be&");
-/* harmony import */ var _MessageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MessageComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/MessageComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _MessageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _MessageComponent_vue_vue_type_template_id_3f20c7be___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _MessageComponent_vue_vue_type_template_id_3f20c7be___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/MessageComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/MessageComponent.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/components/MessageComponent.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MessageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./MessageComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MessageComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MessageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/MessageComponent.vue?vue&type=template&id=3f20c7be&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/MessageComponent.vue?vue&type=template&id=3f20c7be& ***!
-  \*************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MessageComponent_vue_vue_type_template_id_3f20c7be___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./MessageComponent.vue?vue&type=template&id=3f20c7be& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MessageComponent.vue?vue&type=template&id=3f20c7be&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MessageComponent_vue_vue_type_template_id_3f20c7be___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MessageComponent_vue_vue_type_template_id_3f20c7be___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
