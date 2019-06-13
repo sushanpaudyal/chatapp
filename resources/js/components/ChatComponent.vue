@@ -4,9 +4,10 @@
             <div class="col-md-3"> 
                 <div class="card card-default"> 
                     <div class="card-header">Private Chat App</div> 
-                    <ul class="list-group"> 
-                        <li class="list-group-item">Sushan Paudyal</li>
-                        <li class="list-group-item">Jon Doe</li>
+                    <ul class="list-group">
+                        <a href="" @click.prevent :key=friend.id v-for="friend in friends">
+                        <li class="list-group-item">{{friend.name}}</li>
+                        </a>
                     </ul> 
                 </div> 
             </div> 
@@ -22,20 +23,23 @@
     export default {
         data(){
             return {
-                open : true
+                open : true,
+                friends: []
             }
         },
         methods: {
             close(){
                 this.open = false
+            },
+            getFriends(){
+                axios.post('/getFriends').then(res => this.friends = res.data)
             }
         },
         created(){
+            this.getFriends()
         },
         components : {MessageComponent},
-        mounted() {
-            console.log('Component mounted.')
-        }
+
     }
 </script>
 <style>
