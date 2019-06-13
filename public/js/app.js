@@ -1773,6 +1773,14 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
       });
+    }).joining(function (user) {
+      _this2.friends.forEach(function (friend) {
+        return user.id == friend.id ? friend.online == true : '';
+      });
+    }).leaving(function (user) {
+      _this2.friends.forEach(function (friend) {
+        return user.id == friend.id ? friend.online == false : '';
+      });
     });
   },
   components: {
