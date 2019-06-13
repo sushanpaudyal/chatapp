@@ -1720,6 +1720,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1729,8 +1732,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    close: function close() {
-      this.open = false;
+    close: function close(friend) {
+      friend.session.open = false;
     },
     getFriends: function getFriends() {
       var _this = this;
@@ -1738,6 +1741,12 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/getFriends').then(function (res) {
         return _this.friends = res.data.data;
       });
+    },
+    openChat: function openChat(friend) {
+      this.friends.forEach(function (friend) {
+        friend.session.open = false;
+      });
+      friend.session.open = true;
     }
   },
   created: function created() {
@@ -1801,6 +1810,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['friend'],
   data: function data() {
     return {
       chats: [],
@@ -37879,6 +37889,7 @@ var render = function() {
                   on: {
                     click: function($event) {
                       $event.preventDefault()
+                      return _vm.openChat(friend)
                     }
                   }
                 },
@@ -37897,12 +37908,26 @@ var render = function() {
       _c(
         "div",
         { staticClass: "col-md-9" },
-        [
-          _vm.open
-            ? _c("message-component", { on: { close: _vm.close } })
-            : _vm._e()
-        ],
-        1
+        _vm._l(_vm.friends, function(friend) {
+          return _c(
+            "span",
+            { key: friend.id },
+            [
+              friend.session.open
+                ? _c("message-component", {
+                    attrs: { friend: friend },
+                    on: {
+                      close: function($event) {
+                        return _vm.close(friend)
+                      }
+                    }
+                  })
+                : _vm._e()
+            ],
+            1
+          )
+        }),
+        0
       )
     ])
   ])
@@ -37932,7 +37957,7 @@ var render = function() {
   return _c("div", { staticClass: "card card-default chat-box" }, [
     _c("div", { staticClass: "card-header" }, [
       _c("b", { class: { "text-danger": _vm.session_block } }, [
-        _vm._v("\u2028\n            User Name\u2028    "),
+        _vm._v("\n            " + _vm._s(_vm.friend.name) + "\n            "),
         _vm.session_block ? _c("span", [_vm._v("(Blocked)")]) : _vm._e()
       ]),
       _vm._v(" "),
