@@ -1757,7 +1757,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/session/create', {
         friend_id: friend.id
       }).then(function (res) {
-        return friend.session = res.data;
+        friend.session = res.data.data, friend.session.open = true;
       });
     }
   },
