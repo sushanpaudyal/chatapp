@@ -1718,6 +1718,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1734,7 +1736,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.post('/getFriends').then(function (res) {
-        return _this.friends = res.data;
+        return _this.friends = res.data.data;
       });
     }
   },
