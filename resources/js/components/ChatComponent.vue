@@ -50,11 +50,12 @@
                     this.createSession(friend);
                 }
 
+            },
+            createSession(friend){
+                axios.post('/session/create', {friend_id : friend.id}).then(res => friend.session = res.data)
             }
         },
-        createSession(friend){
-            axios.post('/session/create', {friend_id : friend.id}).then(res => console.log(res.data))
-        }
+
         created(){
             this.getFriends()
         },
